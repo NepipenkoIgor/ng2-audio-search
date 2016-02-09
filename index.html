@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng2-audio-search</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system.src.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+
+
+    <link rel="stylesheet" href="styles/audiosearch.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<script>
+    System.config({
+        transpiler: 'typescript',
+        typescriptOptions: {
+            module: 'commonjs'
+        },
+        map: {
+            typescript: 'node_modules/typescript/lib',
+            'es6-shim':'node_modules/es6-shim',
+            rxjs: 'node_modules/rxjs',
+            angular2: 'node_modules/angular2',
+            SpotifyService: 'SpotifyService.ts',
+            SearchComponent: 'SearchComponent.ts',
+            TrackComponent: 'TrackComponent.ts',
+            ArtistComponent: 'ArtistComponent.ts',
+            AlbumsComponent: 'AlbumsComponent.ts',
+        },
+        packages: {
+            typescript: {
+                main: 'typescript'
+            },
+            'es6-shim': {
+                main: 'es6-shim'
+            },
+            rxjs: {
+                main: 'Rx'
+            },
+            angular2: {
+                main: '*'
+            }
+        }
+
+    });
+    System.import('rxjs')
+            .then(null, console.error.bind(console));
+    System.import('app.ts')
+            .then(null, console.error.bind(console));
+</script>
+<router-app></router-app>
+</body>
+</html>
