@@ -48,8 +48,15 @@
     System.import('rxjs')
             .then(null, console.error.bind(console));
     System.import('app.ts')
-            .then(null, console.error.bind(console));
+            .then(function (_) {
+                console.log('start');
+                var loadgif=document.querySelector('.loading-gif');
+                document.body.removeChild(loadgif)
+               // loadgif.styles.display='none'
+            })
+            //.then(null, console.error.bind(console));
 </script>
+<img class="loading-gif" src="images/loading.gif" alt="">
 <router-app></router-app>
 </body>
 </html>
